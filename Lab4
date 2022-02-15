@@ -1,0 +1,43 @@
+/* ********************** *
+* Власова Мария 
+* Программирование обработки массивов
+* Вариант 2
+* ***********************/
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+ 
+int main() 
+{
+  setlocale(0, ""); 
+  int b[10][10], s, k, n, m; 
+  srand(time(NULL));
+  cout << "Введите размерность матрицы N x M : ";
+  cin >> n >> m;
+  cout << "Сформированная матрица B \n";
+  for (int i=0; i<n; i++)
+  { 
+  	for (int j=0; j<m; j++) { 
+  	  b[i][j]=rand()%(41)-20;
+  	  printf("%5d",b[i][j]); 
+  	}
+  	printf("\n"); 
+  }
+  cout << "Сумма и количество отриц. элементов строк \n";
+  for (int i=0; i<n; i++) 
+  { 
+  	s=0; k=0; 
+	for (int j=0; j<m; j++)  
+  	  if (b[i][j]<0) 
+      {
+  	    s=s+b[i][j]; 
+  	    k=k+1; 
+  	}
+	printf("%5d%5d \n",s,k); 
+  }
+  system("pause");
+  return 0;
+}
